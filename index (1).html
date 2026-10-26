@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Schedule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1 id="school">School Schedule</h1>
+      <p class="sub" id="clock"></p>
+    </div>
+    <button id="print" class="ghost" type="button">Print</button>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Choose a view">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-mode="teacher" class="active">Teacher</button>
+        <button role="tab" data-mode="student">Student</button>
+        <button role="tab" data-mode="section">Section</button>
+        <button role="tab" data-mode="manage">Manage</button>
+      </div>
+      <label class="pick">
+        <span id="pickLabel">Teacher</span>
+        <select id="picker"></select>
+      </label>
+    </section>
+
+    <div id="editBanner" class="banner" hidden>
+      <div>
+        <b>You have changes saved in this browser only.</b>
+        To show them to everyone, download <code>schedule.json</code> and upload it to the
+        <code>data</code> folder on GitHub (replace the old file).
+      </div>
+      <div class="banner-actions">
+        <button type="button" class="js-download">Download schedule.json</button>
+        <button type="button" class="ghost" id="discardBtn">Discard my changes</button>
+      </div>
+    </div>
+
+    <div id="conflicts" class="conflicts" hidden></div>
+
+    <!-- Viewing schedules -->
+    <div id="views">
+      <section class="panel">
+        <h2 id="title"></h2>
+        <div id="today" class="today"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Weekly schedule</h2>
+        <div id="grid" class="grid"></div>
+      </section>
+    </div>
+
+    <!-- Editing -->
+    <div id="manage" hidden>
+      <section class="panel">
+        <h2>Teachers</h2>
+        <form id="teacherForm" class="addform">
+          <input id="tName" placeholder="Teacher name" required>
+          <input id="tSubject" placeholder="Subject (e.g. Mathematics)" required>
+          <button type="submit">Add teacher</button>
+        </form>
+        <div id="teacherList" class="mlist"></div>
+        <p class="hint">Use <b>Assign section</b> on a teacher to give them a section, room, days, and time.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Sections</h2>
+        <form id="sectionForm" class="addform">
+          <input id="secName" placeholder="Section name (e.g. Grade 7 - Rizal)" required>
+          <button type="submit">Add section</button>
+        </form>
+        <div id="sectionList" class="mlist"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Students</h2>
+        <form id="studentForm" class="addform">
+          <input id="stName" placeholder="Student name" required>
+          <select id="sSection" aria-label="Student section"></select>
+          <button type="submit">Add student</button>
+        </form>
+        <div id="studentList" class="mlist"></div>
+      </section>
+
+      <section class="panel" id="classPanel">
+        <h2 id="classHeading">Assign a teacher to a section</h2>
+        <form id="classForm" class="classform">
+          <label>Teacher <select id="cTeacher"></select></label>
+          <label>Section <select id="cSection"></select></label>
+          <label>Subject <input id="cSubject" placeholder="Subject" required></label>
+          <label>Room <input id="cRoom" placeholder="Room" required></label>
+          <label>Start <input id="cStart" type="time" value="08:00" required></label>
+          <label>End <input id="cEnd" type="time" value="09:00" required></label>
+          <fieldset>
+            <legend>Days</legend>
+            <div id="cDays" class="days"></div>
+          </fieldset>
+          <div class="formbtns">
+            <button type="submit" id="classSave">Add class</button>
+            <button type="button" class="ghost" id="classCancel" hidden>Cancel edit</button>
+          </div>
+        </form>
+        <div id="classList" class="mlist"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Save, share, or restore</h2>
+        <p class="hint">Edits are saved automatically in this browser. To publish them for everyone,
+          download the file and upload it to the <code>data</code> folder on GitHub.</p>
+        <div class="formbtns">
+          <button type="button" class="js-download">Download schedule.json</button>
+          <label class="filebtn ghost">Import schedule.json
+            <input id="importFile" type="file" accept=".json,application/json" hidden>
+          </label>
+          <button type="button" class="ghost danger" id="resetBtn">Discard my changes</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    The published schedule is read from <code>data/schedule.json</code>.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
