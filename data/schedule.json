@@ -1,0 +1,31 @@
+{
+  "school": "Sample High School",
+  "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "teachers": [
+    { "id": "t1", "name": "Ms. Reyes", "subject": "Mathematics" },
+    { "id": "t2", "name": "Mr. Santos", "subject": "Science" },
+    { "id": "t3", "name": "Ms. Cruz", "subject": "English" },
+    { "id": "t4", "name": "Mr. Garcia", "subject": "History" }
+  ],
+  "sections": [
+    { "id": "s1", "name": "Grade 7 - Rizal" },
+    { "id": "s2", "name": "Grade 7 - Bonifacio" }
+  ],
+  "students": [
+    { "id": "st1", "name": "Ana Dela Cruz", "sectionId": "s1" },
+    { "id": "st2", "name": "Ben Ramos", "sectionId": "s1" },
+    { "id": "st3", "name": "Carla Mendoza", "sectionId": "s2" },
+    { "id": "st4", "name": "David Lim", "sectionId": "s2" }
+  ],
+  "classes": [
+    { "subject": "Mathematics", "teacherId": "t1", "sectionId": "s1", "room": "101", "days": ["Mon", "Wed", "Fri"], "start": "08:00", "end": "09:00" },
+    { "subject": "Science",     "teacherId": "t2", "sectionId": "s1", "room": "Lab 1", "days": ["Mon", "Wed", "Fri"], "start": "09:00", "end": "10:00" },
+    { "subject": "English",     "teacherId": "t3", "sectionId": "s1", "room": "102", "days": ["Tue", "Thu"], "start": "08:00", "end": "09:30" },
+    { "subject": "History",     "teacherId": "t4", "sectionId": "s1", "room": "103", "days": ["Tue", "Thu"], "start": "10:00", "end": "11:00" },
+
+    { "subject": "Mathematics", "teacherId": "t1", "sectionId": "s2", "room": "101", "days": ["Mon", "Wed", "Fri"], "start": "10:30", "end": "11:30" },
+    { "subject": "Science",     "teacherId": "t2", "sectionId": "s2", "room": "Lab 1", "days": ["Tue", "Thu"], "start": "08:00", "end": "09:30" },
+    { "subject": "English",     "teacherId": "t3", "sectionId": "s2", "room": "102", "days": ["Mon", "Wed", "Fri"], "start": "08:00", "end": "09:00" },
+    { "subject": "History",     "teacherId": "t4", "sectionId": "s2", "room": "103", "days": ["Tue", "Thu"], "start": "11:00", "end": "12:00" }
+  ]
+}
