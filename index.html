@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Schedule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1 id="school">School Schedule</h1>
+      <p class="sub" id="clock"></p>
+    </div>
+    <button id="print" class="ghost" type="button">Print</button>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Choose a schedule">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-mode="teacher" class="active">Teacher</button>
+        <button role="tab" data-mode="student">Student</button>
+        <button role="tab" data-mode="section">Section</button>
+      </div>
+      <label class="pick">
+        <span id="pickLabel">Teacher</span>
+        <select id="picker"></select>
+      </label>
+    </section>
+
+    <div id="conflicts" class="conflicts" hidden></div>
+
+    <section class="panel">
+      <h2 id="title"></h2>
+      <div id="today" class="today"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Weekly schedule</h2>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    Schedules are read from <code>data/schedule.json</code>. Edit that file on GitHub and the site updates automatically.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
